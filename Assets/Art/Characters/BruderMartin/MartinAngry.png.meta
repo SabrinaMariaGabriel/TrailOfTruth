@@ -1,0 +1,1001 @@
+fileFormatVersion: 2
+guid: 50cf0b290509d794fa1414a66f39a990
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5491139207665935110
+    second: MartinAngry_0
+  - first:
+      213: 1266547972650929313
+    second: MartinAngry_1
+  - first:
+      213: -2022828579905747281
+    second: MartinAngry_2
+  - first:
+      213: -6841647851204979000
+    second: MartinAngry_3
+  - first:
+      213: 7187969351067507718
+    second: MartinAngry_4
+  - first:
+      213: 4778444792977439401
+    second: MartinAngry_5
+  - first:
+      213: 2577034255266730946
+    second: MartinAngry_6
+  - first:
+      213: 5723100118415559379
+    second: MartinAngry_7
+  - first:
+      213: 6826945070715210611
+    second: MartinAngry_8
+  - first:
+      213: -5825310950333160948
+    second: MartinAngry_9
+  - first:
+      213: 2881118193959202351
+    second: MartinAngry_10
+  - first:
+      213: -8633061793879929839
+    second: MartinAngry_11
+  - first:
+      213: -628785350635503068
+    second: MartinAngry_12
+  - first:
+      213: -3753521623515546990
+    second: MartinAngry_13
+  - first:
+      213: 176546235271154068
+    second: MartinAngry_14
+  - first:
+      213: 6220950620734611659
+    second: MartinAngry_15
+  - first:
+      213: 8484446021375656275
+    second: MartinAngry_16
+  - first:
+      213: 2390421907592689080
+    second: MartinAngry_17
+  - first:
+      213: -8812943432565796506
+    second: MartinAngry_18
+  - first:
+      213: 5182715517839990092
+    second: MartinAngry_19
+  - first:
+      213: -4089921706010914634
+    second: MartinAngry_20
+  - first:
+      213: -121599232073100416
+    second: MartinAngry_21
+  - first:
+      213: -752232694038031845
+    second: MartinAngry_22
+  - first:
+      213: -4951434353349788125
+    second: MartinAngry_23
+  - first:
+      213: 8919263783573698486
+    second: MartinAngry_24
+  - first:
+      213: 5398917964345639643
+    second: MartinAngry_25
+  - first:
+      213: 7917640386873192618
+    second: MartinAngry_26
+  - first:
+      213: -8120135504884115989
+    second: MartinAngry_27
+  - first:
+      213: 7144806739249483708
+    second: MartinAngry_28
+  - first:
+      213: -5391218489637777296
+    second: MartinAngry_29
+  - first:
+      213: -5649914663530616509
+    second: MartinAngry_30
+  - first:
+      213: 6516202522110567992
+    second: MartinAngry_31
+  - first:
+      213: 3817777062962760369
+    second: MartinAngry_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MartinAngry_0
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 2896
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc1ad2ebfd8bc3b0800000000000000
+      internalID: -5491139207665935110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_1
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 2900
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac89d0bbaea39110800000000000000
+      internalID: 1266547972650929313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2884
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6c53dbf187de3e0800000000000000
+      internalID: -2022828579905747281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2892
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6dc9627859d01a0800000000000000
+      internalID: -6841647851204979000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_4
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 2888
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60c16c29a0cc0c360800000000000000
+      internalID: 7187969351067507718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_5
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 2888
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa3c30d832705240800000000000000
+      internalID: 4778444792977439401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_6
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 2888
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3df2f500773c320800000000000000
+      internalID: 2577034255266730946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_7
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 2888
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dac7244c398c6f40800000000000000
+      internalID: 5723100118415559379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_8
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 2888
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b85110f5e2ebe50800000000000000
+      internalID: 6826945070715210611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 2879
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02e233fd86582fa0800000000000000
+      internalID: -5825310950333160948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_10
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 2875
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e6ada8bb9cbf720800000000000000
+      internalID: 2881118193959202351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_11
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 0
+        width: 2227
+        height: 2873
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c4ac3d904313880800000000000000
+      internalID: -8633061793879929839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_12
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 2871
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422c6671e0b1647f0800000000000000
+      internalID: -628785350635503068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_13
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2418
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29abb9d68ffc8ebc0800000000000000
+      internalID: -3753521623515546990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_14
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2384
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49905c79dd7337200800000000000000
+      internalID: 176546235271154068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_15
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1880
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0e12a21a1455650800000000000000
+      internalID: 6220950620734611659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_16
+      rect:
+        serializedVersion: 2
+        x: 2267
+        y: 1679
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 351821434beceb570800000000000000
+      internalID: 8484446021375656275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_17
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1645
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5bf595f0c7c2120800000000000000
+      internalID: 2390421907592689080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_18
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1397
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661dd4c14a222b580800000000000000
+      internalID: -8812943432565796506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_19
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1141
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4dd1c4ed44bce740800000000000000
+      internalID: 5182715517839990092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 873
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b05f02b0edad37c0800000000000000
+      internalID: -4089921706010914634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_21
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 839
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0839257842eff4ef0800000000000000
+      internalID: -121599232073100416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_22
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 772
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b129d6ba9588f85f0800000000000000
+      internalID: -752232694038031845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_23
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 680
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e7bef70b8f84bb0800000000000000
+      internalID: -4951434353349788125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_24
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 591
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7bae5a72797cb70800000000000000
+      internalID: 8919263783573698486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_25
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 579
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd20c4ca84fccea40800000000000000
+      internalID: 5398917964345639643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 545
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa0fcde7bfb11ed60800000000000000
+      internalID: 7917640386873192618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_27
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 470
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be55857d7cb7f4f80800000000000000
+      internalID: -8120135504884115989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_28
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 436
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf48c1efd3772360800000000000000
+      internalID: 7144806739249483708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_29
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 403
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0705f9af85b8e25b0800000000000000
+      internalID: -5391218489637777296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_30
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 369
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349acfc4c887791b0800000000000000
+      internalID: -5649914663530616509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_31
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 67
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836a7e66ba33e6a50800000000000000
+      internalID: 6516202522110567992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinAngry_32
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 4
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba8785e2087bf430800000000000000
+      internalID: 3817777062962760369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MartinAngry_0: -5491139207665935110
+      MartinAngry_1: 1266547972650929313
+      MartinAngry_10: 2881118193959202351
+      MartinAngry_11: -8633061793879929839
+      MartinAngry_12: -628785350635503068
+      MartinAngry_13: -3753521623515546990
+      MartinAngry_14: 176546235271154068
+      MartinAngry_15: 6220950620734611659
+      MartinAngry_16: 8484446021375656275
+      MartinAngry_17: 2390421907592689080
+      MartinAngry_18: -8812943432565796506
+      MartinAngry_19: 5182715517839990092
+      MartinAngry_2: -2022828579905747281
+      MartinAngry_20: -4089921706010914634
+      MartinAngry_21: -121599232073100416
+      MartinAngry_22: -752232694038031845
+      MartinAngry_23: -4951434353349788125
+      MartinAngry_24: 8919263783573698486
+      MartinAngry_25: 5398917964345639643
+      MartinAngry_26: 7917640386873192618
+      MartinAngry_27: -8120135504884115989
+      MartinAngry_28: 7144806739249483708
+      MartinAngry_29: -5391218489637777296
+      MartinAngry_3: -6841647851204979000
+      MartinAngry_30: -5649914663530616509
+      MartinAngry_31: 6516202522110567992
+      MartinAngry_32: 3817777062962760369
+      MartinAngry_4: 7187969351067507718
+      MartinAngry_5: 4778444792977439401
+      MartinAngry_6: 2577034255266730946
+      MartinAngry_7: 5723100118415559379
+      MartinAngry_8: 6826945070715210611
+      MartinAngry_9: -5825310950333160948
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0305d9bbe830661439c8a86485c8ea2a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - popupPrefab: {instanceID: 0}
+  - positiveSfx: {fileID: 8300000, guid: 58f8752c9afd1f543b866d9a72e9f090, type: 3}
+  - negativeSfx: {fileID: 8300000, guid: d384fbea1d891fb46a8d7664bc1c95ff, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

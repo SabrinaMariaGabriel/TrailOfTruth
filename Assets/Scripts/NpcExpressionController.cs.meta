@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b06ea70eefd0cf647b72e39a5782ba73
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - portraitImage: {instanceID: 0}
+  - MartinNeutral: {fileID: -9217407397671414199, guid: 9bd3229a995006f4cb199ca588bc3cab, type: 3}
+  - MartinHappy: {fileID: 1069197832855132582, guid: 4bc8cc3f7c47c484d9ae7dd2274aaf8c, type: 3}
+  - MartinSad: {fileID: 3096637764573033099, guid: b95d7f8dceebc9342ab609591cd6ceab, type: 3}
+  - MartinAngry: {fileID: -5491139207665935110, guid: 50cf0b290509d794fa1414a66f39a990, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

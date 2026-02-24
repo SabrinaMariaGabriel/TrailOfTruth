@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: b95d7f8dceebc9342ab609591cd6ceab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3096637764573033099
+    second: MartinSad_0
+  - first:
+      213: 4112178787829817472
+    second: MartinSad_1
+  - first:
+      213: -7152503090490947331
+    second: MartinSad_2
+  - first:
+      213: 323518274865162638
+    second: MartinSad_3
+  - first:
+      213: -2680745837253023890
+    second: MartinSad_4
+  - first:
+      213: 7169311501926547350
+    second: MartinSad_5
+  - first:
+      213: -6114748188707340585
+    second: MartinSad_6
+  - first:
+      213: 2528161991117006295
+    second: MartinSad_7
+  - first:
+      213: 1263616432629541925
+    second: MartinSad_8
+  - first:
+      213: 6773865096516250827
+    second: MartinSad_9
+  - first:
+      213: -3203129720669721217
+    second: MartinSad_10
+  - first:
+      213: -292851880205665697
+    second: MartinSad_11
+  - first:
+      213: -3295074826383048956
+    second: MartinSad_12
+  - first:
+      213: 4617448184334652185
+    second: MartinSad_13
+  - first:
+      213: 659901560257160969
+    second: MartinSad_14
+  - first:
+      213: -7430251780546067493
+    second: MartinSad_15
+  - first:
+      213: -6775163739433289466
+    second: MartinSad_16
+  - first:
+      213: 8517760917109207464
+    second: MartinSad_17
+  - first:
+      213: 8116522219665952322
+    second: MartinSad_18
+  - first:
+      213: -5897804350190798439
+    second: MartinSad_19
+  - first:
+      213: 7897910942013060711
+    second: MartinSad_20
+  - first:
+      213: -4939119902106434965
+    second: MartinSad_21
+  - first:
+      213: -3355200476861197940
+    second: MartinSad_22
+  - first:
+      213: -4794831697608822653
+    second: MartinSad_23
+  - first:
+      213: 4953793244264605346
+    second: MartinSad_24
+  - first:
+      213: 548985704861652190
+    second: MartinSad_25
+  - first:
+      213: 6443592679803507567
+    second: MartinSad_26
+  - first:
+      213: 5125457238920944616
+    second: MartinSad_27
+  - first:
+      213: 1396328401060122445
+    second: MartinSad_28
+  - first:
+      213: -8869755175337740669
+    second: MartinSad_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MartinSad_0
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 2922
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b827f63e3a779fa20800000000000000
+      internalID: 3096637764573033099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_1
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 2922
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0802e7df1d4611930800000000000000
+      internalID: 4112178787829817472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_2
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 2922
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df84764b5543dbc90800000000000000
+      internalID: -7152503090490947331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_3
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 2922
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e896fab282e5d7400800000000000000
+      internalID: 323518274865162638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_4
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 2922
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e672d6d3dd31ccad0800000000000000
+      internalID: -2680745837253023890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_5
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 2922
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f347c83d28e7360800000000000000
+      internalID: 7169311501926547350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_6
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 2922
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7deb2217bec042ba0800000000000000
+      internalID: -6114748188707340585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_7
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 2917
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d56c27afe5d51320800000000000000
+      internalID: 2528161991117006295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_8
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 2922
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52cea375374498110800000000000000
+      internalID: 1263616432629541925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_9
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 2922
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcca4427a6a910e50800000000000000
+      internalID: 6773865096516250827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_10
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2913
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d2cfd6d723c83d0800000000000000
+      internalID: -3203129720669721217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_11
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 2908
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a398c34c49febf0800000000000000
+      internalID: -292851880205665697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_12
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 2908
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40f3b1947ea8542d0800000000000000
+      internalID: -3295074826383048956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_13
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 2913
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9131a0cc8a8741040800000000000000
+      internalID: 4617448184334652185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_14
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 2908
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907aad509f0782900800000000000000
+      internalID: 659901560257160969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2283
+        height: 2906
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd386dc6f5172e890800000000000000
+      internalID: -7430251780546067493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_16
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 2904
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609b8ffa978c9f1a0800000000000000
+      internalID: -6775163739433289466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_17
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 2904
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1fff1dc6a253670800000000000000
+      internalID: 8517760917109207464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_18
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 2710
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e01c2a4fda3a070800000000000000
+      internalID: 8116522219665952322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_19
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 2215
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 999bf10013ac62ea0800000000000000
+      internalID: -5897804350190798439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_20
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 2180
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 766fb5628240b9d60800000000000000
+      internalID: 7897910942013060711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_21
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 2074
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6242eb1e98b47bb0800000000000000
+      internalID: -4939119902106434965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_22
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 1862
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81977261feef61d0800000000000000
+      internalID: -3355200476861197940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_23
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 1792
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3803e32a9f5557db0800000000000000
+      internalID: -4794831697608822653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_24
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 1756
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a62f1795b86fb440800000000000000
+      internalID: 4953793244264605346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_25
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 1509
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4db0507936e9700800000000000000
+      internalID: 548985704861652190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_26
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 132
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63def4176d3c6950800000000000000
+      internalID: 6443592679803507567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_27
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 97
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb5655f338412740800000000000000
+      internalID: 5125457238920944616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_28
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 61
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f4afe5841c06310800000000000000
+      internalID: 1396328401060122445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartinSad_29
+      rect:
+        serializedVersion: 2
+        x: 2290
+        y: 26
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386bf4979ac48e480800000000000000
+      internalID: -8869755175337740669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MartinSad_0: 3096637764573033099
+      MartinSad_1: 4112178787829817472
+      MartinSad_10: -3203129720669721217
+      MartinSad_11: -292851880205665697
+      MartinSad_12: -3295074826383048956
+      MartinSad_13: 4617448184334652185
+      MartinSad_14: 659901560257160969
+      MartinSad_15: -7430251780546067493
+      MartinSad_16: -6775163739433289466
+      MartinSad_17: 8517760917109207464
+      MartinSad_18: 8116522219665952322
+      MartinSad_19: -5897804350190798439
+      MartinSad_2: -7152503090490947331
+      MartinSad_20: 7897910942013060711
+      MartinSad_21: -4939119902106434965
+      MartinSad_22: -3355200476861197940
+      MartinSad_23: -4794831697608822653
+      MartinSad_24: 4953793244264605346
+      MartinSad_25: 548985704861652190
+      MartinSad_26: 6443592679803507567
+      MartinSad_27: 5125457238920944616
+      MartinSad_28: 1396328401060122445
+      MartinSad_29: -8869755175337740669
+      MartinSad_3: 323518274865162638
+      MartinSad_4: -2680745837253023890
+      MartinSad_5: 7169311501926547350
+      MartinSad_6: -6114748188707340585
+      MartinSad_7: 2528161991117006295
+      MartinSad_8: 1263616432629541925
+      MartinSad_9: 6773865096516250827
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
