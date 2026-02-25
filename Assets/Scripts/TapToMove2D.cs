@@ -11,22 +11,26 @@ public class TapToMove2D : MonoBehaviour
     [Header("UI")]
     public bool blockWhenPointerOverUI = true;
 
-    private Vector3 target;
+    private Vector2 target; // Auf Vector2 geändert (für 2D-Physik sauberer)
     public bool IsMoving { get; private set; }
+
+    private Rigidbody2D rb; // NEU: Unser Physik-Motor
 
     void Awake()
     {
         if (cam == null) cam = Camera.main;
+
+        // NEU: Wir schnappen uns den Rigidbody von unserem Spieler
+        rb = GetComponent<Rigidbody2D>();
         target = transform.position;
     }
 
-    // NEU: Beim Start der Szene prüfen, ob wir eine Position gespeichert haben
     void Start()
     {
         if (GameState.I != null && GameState.I.hasSavedPosition)
         {
             transform.position = GameState.I.lastPlayerPosition;
-            target = transform.position; // Wichtig, damit er nicht sofort wieder wegläuft
+            target = transform.position;
         }
     }
 
@@ -43,7 +47,6 @@ public class TapToMove2D : MonoBehaviour
             Collider2D npcHit = Physics2D.OverlapPoint(world, npcMask);
             if (npcHit != null)
             {
-                // Sag dem NPC, dass er angetippt wurde und überib dieses Skript (this)
                 NpcApproachAndTalk npc = npcHit.GetComponent<NpcApproachAndTalk>();
                 if (npc != null)
                 {
@@ -51,8 +54,6 @@ public class TapToMove2D : MonoBehaviour
                 }
                 return;
             }
-
-
 
             // 2) Walkable?
             Collider2D walkHit = Physics2D.OverlapPoint(world, walkableMask);
@@ -62,11 +63,25 @@ public class TapToMove2D : MonoBehaviour
             }
         }
 
+        // NEU: Wir prüfen hier nur noch, ob er angekommen ist, um den Motor abzustellen
         if (IsMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, target) < 0.02f)
+            if (Vector2.Distance(transform.position, target) < 0.02f)
+            {
                 IsMoving = false;
+            }
+        }
+    }
+
+    // NEU: Physikalische Bewegungen gehören IMMER in die FixedUpdate!
+    void FixedUpdate()
+    {
+        if (IsMoving)
+        {
+            // Wir schieben den Körper jetzt physikalisch, statt ihn zu teleportieren!
+            // Time.fixedDeltaTime ist wichtig für flüssige Physik.
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            rb.MovePosition(newPos);
         }
     }
 
@@ -83,7 +98,7 @@ public class TapToMove2D : MonoBehaviour
 
     public void SetTarget(Vector2 worldPos)
     {
-        target = new Vector3(worldPos.x, worldPos.y, transform.position.z);
+        target = worldPos;
         IsMoving = true;
     }
 
@@ -95,7 +110,6 @@ public class TapToMove2D : MonoBehaviour
 
     bool PointerPressedThisFrame()
     {
-        // Reagiert auf Maus (Editor) ODER Touch (Handy)
         if (Input.GetMouseButtonDown(0)) return true;
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) return true;
         return false;
@@ -103,7 +117,6 @@ public class TapToMove2D : MonoBehaviour
 
     Vector2 GetPointerPosition()
     {
-        // Wenn ein Finger da ist, nimm den, sonst die Maus
         if (Input.touchCount > 0) return Input.GetTouch(0).position;
         return Input.mousePosition;
     }
