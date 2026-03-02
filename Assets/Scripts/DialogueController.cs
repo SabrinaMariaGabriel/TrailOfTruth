@@ -65,7 +65,7 @@ public class DialogueController : MonoBehaviour
         if (stepIndex == 0)
         {
             npcExpression?.SetNeutral();
-            SetLine("Ich bin’s, Bruder Martin. Was geht ab?");
+            SetLine("Ich bin’s, Bruder Martin. Wie geht es dir?");
             return;
         }
 

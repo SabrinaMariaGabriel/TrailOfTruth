@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameState
   lastPlayerPosition: {x: 0, y: 0, z: 0}
   hasSavedPosition: 0
+  selectedCharacterId: male
 --- !u!4 &33618579
 Transform:
   m_ObjectHideFlags: 0
