@@ -28,9 +28,11 @@ public class NpcExpressionController : MonoBehaviour
 
     void Start()
     {
-        // Immer neutral am Anfang
-        Debug.Log("Setting neutral sprite now");
-        SetNeutral();
+        // Nur neutral setzen, wenn das Bild noch komplett leer ist
+        if (portraitImage != null && portraitImage.sprite == null)
+        {
+            SetNeutral();
+        }
     }
 
     public void SetNeutral() => SetSprite(MartinNeutral);

@@ -1,62 +1,150 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Wichtig für das Fade-Bild
-using UnityEngine.SceneManagement; // Wichtig für den Szenenwechsel
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro; // WICHTIG: Damit das Skript TextMeshPro versteht
 
 public class IntroSequence : MonoBehaviour
 {
     [Header("Die Schauspieler")]
-    public Transform bird;       // Unser Vogel
-    public Transform player;     // Der liegende Held
-    public Image fadeScreen;     // Das schwarze Bild im Canvas
+    public Transform bird;
+    public Transform player;
+    public Image fadeScreen;
+    public Animator birdAnimator;
+    public Animator playerAnimator;
+
+    [Header("Requisiten")]
+    public TextMeshProUGUI skipText; // Hier ziehen wir das Text-Objekt rein
+    public GameObject exclamationMark;
 
     [Header("Die Einstellungen")]
-    public float birdSpeed = 2f;
-    public string nextSceneName = "DialogScene"; // WICHTIG: Hier den exakten Namen deiner nächsten Szene eintragen!
+    public float birdSpeed = 6f;
+    public string nextSceneName = "DialogScene";
 
     void Start()
     {
-        // Sobald die Szene startet, rufen wir "Action!"
         StartCoroutine(PlayIntroFilm());
     }
 
     IEnumerator PlayIntroFilm()
     {
+        // --- VORBEREITUNG ---
+        // Text am Anfang unsichtbar machen (Alpha auf 0)
+        if (skipText != null) skipText.color = new Color(skipText.color.r, skipText.color.g, skipText.color.b, 0);
+        if (exclamationMark != null) exclamationMark.SetActive(false);
+
         // 1. SZENE WIRD HELL (Fade In)
-        fadeScreen.color = new Color(0, 0, 0, 1); // Startet komplett schwarz
+        fadeScreen.color = new Color(0, 0, 0, 1);
         while (fadeScreen.color.a > 0)
         {
-            float newAlpha = fadeScreen.color.a - (Time.deltaTime / 2f); // Dauert 2 Sekunden
+            float newAlpha = fadeScreen.color.a - (Time.deltaTime / 2.5f);
             fadeScreen.color = new Color(0, 0, 0, newAlpha);
-            yield return null; // Warte einen Frame
+            yield return null;
         }
 
-        // 1 Sekunde Pause, damit der Spieler sich umsehen kann
         yield return new WaitForSeconds(1f);
 
-        // 2. VOGEL FLIEGT ZUM SPIELER
-        // Wir setzen das Ziel ein kleines Stück neben den Spieler, damit er nicht auf seinem Gesicht landet
-        Vector3 targetPos = player.position + new Vector3(1f, 0.5f, 0f);
+        // --- TEXT SANFT EINFADEN ---
+        if (skipText != null)
+        {
+            float t = 0;
+            while (t < 1)
+            {
+                t += Time.deltaTime / 1.5f; // Text braucht 1.5 Sek zum Erscheinen
+                skipText.color = new Color(skipText.color.r, skipText.color.g, skipText.color.b, t);
+                yield return null;
+            }
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        // 2. VOGEL STÜRZT AUS DEM HIMMEL AUF DEN BODEN
+        Vector3 landingPos = new Vector3(bird.position.x, player.position.y, 0f);
+
+        if (birdAnimator != null) birdAnimator.Play("Bird_Fly");
+
+        while (Vector3.Distance(bird.position, landingPos) > 0.1f)
+        {
+            bird.position = Vector3.MoveTowards(bird.position, landingPos, birdSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        if (birdAnimator != null) birdAnimator.Play("Bird_Idle");
+        yield return new WaitForSeconds(0.6f);
+
+        // 3. VOGEL HÜPFT ZUM SPIELER
+        Vector3 targetPos = player.position + new Vector3(-1.0f, 0.7f, 0f);
 
         while (Vector3.Distance(bird.position, targetPos) > 0.1f)
         {
-            // Bewegt den Vogel Stück für Stück zum Ziel
-            bird.position = Vector3.MoveTowards(bird.position, targetPos, birdSpeed * Time.deltaTime);
+            if (birdAnimator != null) birdAnimator.Play("Bird_Fly");
+
+            Vector3 startPos = bird.position;
+            Vector3 nextHopPos = Vector3.MoveTowards(startPos, targetPos, 0.8f);
+
+            float hopDuration = 0.8f / birdSpeed;
+            float timer = 0f;
+
+            while (timer < hopDuration)
+            {
+                timer += Time.deltaTime;
+                float percent = timer / hopDuration;
+
+                Vector3 currentPos = Vector3.Lerp(startPos, nextHopPos, percent);
+                currentPos.y += Mathf.Sin(percent * Mathf.PI) * 0.6f;
+
+                bird.position = currentPos;
+                yield return null;
+            }
+
+            bird.position = nextHopPos;
+
+            if (birdAnimator != null) birdAnimator.Play("Bird_Idle");
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        // 4. DRAMATISCHE PAUSE
+        yield return new WaitForSeconds(1.5f);
+
+        // 5. DER SCHRECK-MOMENT!
+        if (playerAnimator != null) playerAnimator.Play("Player_WakeUp");
+
+        if (exclamationMark != null) exclamationMark.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        if (exclamationMark != null) exclamationMark.SetActive(false);
+
+
+        // 6. VOGEL FLIEHT PANISCH NACH LINKS!
+        Vector3 fleePos = bird.position + new Vector3(-3f, 0f, 0f);
+        if (birdAnimator != null) birdAnimator.Play("Bird_Fly");
+
+        while (Vector3.Distance(bird.position, fleePos) > 0.1f)
+        {
+            bird.position = Vector3.MoveTowards(bird.position, fleePos, (birdSpeed * 2) * Time.deltaTime);
+
+            float offset = Mathf.Sin(Time.time * 20f) * 0.2f;
+            bird.position = new Vector3(bird.position.x, fleePos.y + Mathf.Abs(offset), bird.position.z);
+
             yield return null;
         }
 
-        // 3. DRAMATISCHE PAUSE (Vogel betrachtet den Spieler)
-        yield return new WaitForSeconds(2f);
+        // Text wieder ausblenden, damit er beim schwarzen Schirm nicht stört
+        if (skipText != null) skipText.gameObject.SetActive(false);
 
-        // 4. SZENE WIRD WIEDER DUNKEL (Fade Out)
+        // 7. SZENE WIRD WIEDER DUNKEL (Fade Out)
         while (fadeScreen.color.a < 1)
         {
-            float newAlpha = fadeScreen.color.a + (Time.deltaTime / 1.5f);
+            float newAlpha = fadeScreen.color.a + (Time.deltaTime / 0.3f);
             fadeScreen.color = new Color(0, 0, 0, newAlpha);
             yield return null;
         }
 
-        // 5. SCHNITT! (Lade die nächste Szene)
+        // 8. SCHNITT! 
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void SkipCutscene()
+    {
         SceneManager.LoadScene(nextSceneName);
     }
 }

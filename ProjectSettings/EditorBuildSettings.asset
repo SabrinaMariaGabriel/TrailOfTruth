@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/StartSequence.unity
     guid: f996be79159b3b54b95050751cd3ab80
   - enabled: 1
-    path: Assets/Scenes/BirdFirstDialogue.unity
+    path: Assets/Scenes/BirdIntroDialogue.unity
     guid: 1ef58aede07fbe040abdb6fb569698ba
   - enabled: 1
     path: Assets/Scenes/ForestScene.unity

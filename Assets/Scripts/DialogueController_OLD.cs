@@ -1,10 +1,10 @@
-Ôªøusing System.Collections;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DialogueController : MonoBehaviour
+public class DialogueController_”LD : MonoBehaviour
 {
     [Header("NPC")]
     public NpcExpressionController npcExpression;
@@ -23,14 +23,11 @@ public class DialogueController : MonoBehaviour
     public Button[] answerButtons;       // 4 Buttons
     public TMP_Text[] answerButtonTexts; // 4 TMP Texte auf den Buttons
 
-    [Header("UI - Spezial")]
-    public GameObject companionIcon; // Das Bild oben rechts f√ºr Martin
-
     int stepIndex = 0;
     bool waitingForAnswer = false;
     bool dialogueFinished = false;
 
-    // ‚Äúeine fiese kann alles ruinieren‚Äù
+    // ìeine fiese kann alles ruinierenî
     int martinTrust = 0;
 
     void Start()
@@ -52,9 +49,11 @@ public class DialogueController : MonoBehaviour
     {
         if (waitingForAnswer) return;
 
-        // Wenn der Dialog beendet ist, ignorieren wir weitere Klicks, 
-        // weil die Coroutine (WaitAndExit) den Szenenwechsel √ºbernimmt.
-        if (dialogueFinished) return;
+        if (dialogueFinished)
+        {
+            SceneManager.LoadScene(returnSceneName);
+            return;
+        }
 
         stepIndex++;
         ShowCurrentStep();
@@ -66,28 +65,28 @@ public class DialogueController : MonoBehaviour
         if (stepIndex == 0)
         {
             npcExpression?.SetNeutral();
-            SetLine("Ich bin‚Äôs, Bruder Martin. Wie geht es dir?");
+            SetLine("Ich binís, Bruder Martin. Wie geht es dir?");
             return;
         }
 
         if (stepIndex == 1)
         {
             npcExpression?.SetHappy();
-            SetLine("Sch√∂n, dich zu sehen. Du wirkst‚Ä¶ irgendwie verloren.");
+            SetLine("Schˆn, dich zu sehen. Du wirkstÖ irgendwie verloren.");
             return;
         }
 
         if (stepIndex == 2)
         {
             npcExpression?.SetNeutral();
-            SetLine("Ich begleite hier viele Reisende‚Ä¶ aber es ist nicht immer leicht.");
+            SetLine("Ich begleite hier viele ReisendeÖ aber es ist nicht immer leicht.");
             return;
         }
 
         if (stepIndex == 3)
         {
             npcExpression?.SetSad();
-            SetLine("Manchmal bin ich selbst m√ºde.");
+            SetLine("Manchmal bin ich selbst m¸de.");
             return;
         }
 
@@ -113,12 +112,7 @@ public class DialogueController : MonoBehaviour
             if (comesWithYou)
             {
                 npcExpression?.SetHappy();
-                SetLine("Ich habe mich entschieden: Ich komme mit dir!");
-
-                // DAS ICON EINSCHALTEN
-                if (companionIcon != null) companionIcon.SetActive(true);
-                StartCoroutine(PloppAnimation(companionIcon)); // Starte den Effekt
-
+                SetLine("Ihr setzt eure Reise gemeinsam fort.");
                 if (GameState.I != null) GameState.I.AddCompanion("martin");
             }
             else
@@ -129,9 +123,6 @@ public class DialogueController : MonoBehaviour
             }
 
             dialogueFinished = true;
-
-            // NEU: Wir warten kurz, damit man das Icon/Text sieht, bevor die Szene wechselt
-            StartCoroutine(WaitBeforeSceneChange());
             return;
         }
     }
@@ -146,19 +137,19 @@ public class DialogueController : MonoBehaviour
         ShowAnswers(true);
 
         npcExpression?.SetSad();
-        SetLine("Ich hab so viele Menschen begleitet‚Ä¶\n\naber manchmal frage ich mich: Was, wenn ich selbst gar nicht genug Glauben habe?");
+        SetLine("Ich hab so viele Menschen begleitetÖ\n\naber manchmal frage ich mich: Was, wenn ich selbst gar nicht genug Glauben habe?");
 
         SetAnswers(
-            "Danke f√ºr deine Ehrlichkeit.",
+            "Danke f¸r deine Ehrlichkeit.",
             "Aber du bist doch Pfarrer!",
             "Zweifel = geistlich schwach.",
-            "Darf ich f√ºr dich beten?"
+            "Darf ich f¸r dich beten?"
         );
 
         ClearButtonListeners();
 
         answerButtons[0].onClick.AddListener(() =>
-            ChooseAnswer(reaction: "Bruder Martin l√§chelt erleichtert.", good: true, trustGain: +2, cred: +10, en: 0, fe: +2));
+            ChooseAnswer(reaction: "Bruder Martin l‰chelt erleichtert.", good: true, trustGain: +2, cred: +10, en: 0, fe: +2));
 
         answerButtons[1].onClick.AddListener(() =>
             ChooseAnswer(reaction: "Bruder Martin schaut weg.", good: false, trustGain: 0, cred: -3, en: 0, fe: -1));
@@ -176,13 +167,13 @@ public class DialogueController : MonoBehaviour
         ShowAnswers(true);
 
         npcExpression?.SetSad();
-        SetLine("Wei√üt du‚Ä¶\n\nich habe Angst, dass ich selbst irgendwann aufgebe.");
+        SetLine("Weiﬂt duÖ\n\nich habe Angst, dass ich selbst irgendwann aufgebe.");
 
         SetAnswers(
             "Du musst nicht perfekt sein.",
             "Dann bist du ungeeignet.",
             "Jesus geht mit dir, auch im Zweifel.",
-            "Rei√ü dich zusammen."
+            "Reiﬂ dich zusammen."
         );
 
         ClearButtonListeners();
@@ -194,7 +185,7 @@ public class DialogueController : MonoBehaviour
             ChooseAnswer("Bruder Martin schaut dich entsetzt an.", false, -2, -10, -3, -2));
 
         answerButtons[2].onClick.AddListener(() =>
-            ChooseAnswer("Bruder Martin wirkt ber√ºhrt.", true, +2, +7, +2, +1));
+            ChooseAnswer("Bruder Martin wirkt ber¸hrt.", true, +2, +7, +2, +1));
 
         answerButtons[3].onClick.AddListener(() =>
             ChooseAnswer("Bruder Martin wird still.", false, -1, -5, -2, -1));
@@ -206,7 +197,7 @@ public class DialogueController : MonoBehaviour
         ShowAnswers(true);
 
         npcExpression?.SetNeutral();
-        SetLine("Wenn ich mit dir weitergehe‚Ä¶\n\nwas ist, wenn wir scheitern?");
+        SetLine("Wenn ich mit dir weitergeheÖ\n\nwas ist, wenn wir scheitern?");
 
         SetAnswers(
             "Dann scheitern wir gemeinsam.",
@@ -218,13 +209,13 @@ public class DialogueController : MonoBehaviour
         ClearButtonListeners();
 
         answerButtons[0].onClick.AddListener(() =>
-            ChooseAnswer("Bruder Martin l√§chelt warm.", true, +2, +6, +2, +1));
+            ChooseAnswer("Bruder Martin l‰chelt warm.", true, +2, +6, +2, +1));
 
         answerButtons[1].onClick.AddListener(() =>
             ChooseAnswer("Bruder Martin wirkt traurig.", false, -2, -5, 0, -1));
 
         answerButtons[2].onClick.AddListener(() =>
-            ChooseAnswer("Bruder Martin wirkt √ºberzeugt.", true, +2, +8, +1, +2));
+            ChooseAnswer("Bruder Martin wirkt ¸berzeugt.", true, +2, +8, +1, +2));
 
         answerButtons[3].onClick.AddListener(() =>
             ChooseAnswer("Bruder Martin wird angespannt.", false, -1, -4, -1, -1));
@@ -246,7 +237,7 @@ public class DialogueController : MonoBehaviour
         // Reaktionstext anzeigen
         SetLine(reaction);
 
-        // Werte √§ndern
+        // Werte ‰ndern
         if (gameManager != null)
         {
             gameManager.AddCredibility(cred);
@@ -258,7 +249,7 @@ public class DialogueController : MonoBehaviour
         ShowAnswers(false);
 
         // Wieder auf false setzen, damit der Spieler durch Tippen 
-        // auf den Bildschirm (Advance) selbst den n√§chsten Text aufrufen kann!
+        // auf den Bildschirm (Advance) selbst den n‰chsten Text aufrufen kann!
         waitingForAnswer = false;
     }
 
@@ -309,51 +300,6 @@ public class DialogueController : MonoBehaviour
         {
             answerButtons[i].onClick.RemoveAllListeners();
             answerButtons[i].interactable = true;
-        }
-    }
-
-    IEnumerator WaitAndExit()
-    {
-        // Warte 3 Sekunden, damit man das Icon und den Text sieht
-        yield return new WaitForSeconds(3f);
-
-        // Erst JETZT laden wir die Wald-Szene
-        SceneManager.LoadScene(returnSceneName);
-    }
-
-    IEnumerator WaitBeforeSceneChange()
-    {
-        // Warte 3 Sekunden (Zeit f√ºr das Icon zum Gl√§nzen!)
-        yield return new WaitForSeconds(3f);
-
-        // Erst jetzt wird die Szene gewechselt
-        SceneManager.LoadScene(returnSceneName);
-    }
-
-    IEnumerator PloppAnimation(GameObject icon)
-    {
-        RectTransform rt = icon.GetComponent<RectTransform>();
-        Vector3 originalScale = Vector3.one; // Zielgr√∂√üe (1,1,1)
-
-        // 1. Ganz klein starten
-        rt.localScale = Vector3.zero;
-
-        // 2. Gr√∂√üer werden als normal (Overshoot f√ºr den "Plopp")
-        float t = 0;
-        while (t < 1)
-        {
-            t += Time.deltaTime * 5f; // Geschwindigkeit
-            rt.localScale = Vector3.Lerp(Vector3.zero, originalScale * 1.2f, t);
-            yield return null;
-        }
-
-        // 3. Auf Normalgr√∂√üe zur√ºckschwingen
-        t = 0;
-        while (t < 1)
-        {
-            t += Time.deltaTime * 5f;
-            rt.localScale = Vector3.Lerp(originalScale * 1.2f, originalScale, t);
-            yield return null;
         }
     }
 }
