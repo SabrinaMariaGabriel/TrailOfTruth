@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   create_issue:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - name: Create an issue for this push
