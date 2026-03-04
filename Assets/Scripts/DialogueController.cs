@@ -9,9 +9,6 @@ public class DialogueController : MonoBehaviour
     [Header("NPC")]
     public NpcExpressionController npcExpression;
 
-    [Header("Refs")]
-    public GameManager gameManager;
-
     [Header("Scene Flow")]
     public string returnSceneName = "ForestScene";
 
@@ -37,7 +34,9 @@ public class DialogueController : MonoBehaviour
     {
         if (answersGrid != null) answersGrid.SetActive(false);
 
-        // Optional: sicherstellen, dass Panel-Button hooked ist
+        // Sicherstellen, dass das HUD die aktuellen Werte zeigt
+        if (GameManager.I != null) GameManager.I.RefreshUI();
+
         if (dialogPanelButton != null)
         {
             dialogPanelButton.onClick.RemoveAllListeners();
@@ -246,19 +245,21 @@ public class DialogueController : MonoBehaviour
         // Reaktionstext anzeigen
         SetLine(reaction);
 
-        // Werte ändern
-        if (gameManager != null)
+        // --- ÄNDERUNG HIER: Nutze das Singleton GameManager.I ---
+        if (GameManager.I != null)
         {
-            gameManager.AddCredibility(cred);
-            gameManager.AddEnergy(en);
-            gameManager.AddFeather(fe);
+            GameManager.I.AddCredibility(cred);
+            GameManager.I.AddEnergy(en);
+            GameManager.I.AddFeather(fe);
+        }
+        else
+        {
+            Debug.LogWarning("Kein GameManager in der Szene gefunden!");
         }
 
         // Antwort-Buttons direkt ausblenden
         ShowAnswers(false);
 
-        // Wieder auf false setzen, damit der Spieler durch Tippen 
-        // auf den Bildschirm (Advance) selbst den nächsten Text aufrufen kann!
         waitingForAnswer = false;
     }
 
