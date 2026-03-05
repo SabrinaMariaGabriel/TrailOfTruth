@@ -84,8 +84,8 @@ public class MainMenuController : MonoBehaviour
             GameState.I.hasSavedPosition = false; // Wichtig: Beim neuen Spiel starten wir am Standard-Punkt!
         }
 
-        // 2. Szene laden
-        SceneManager.LoadScene("ForestScene");
+        // 2. Szene laden (Cutscene)
+        SceneManager.LoadScene("StartSequence");
     }
 
     public void LoadSavedGame()

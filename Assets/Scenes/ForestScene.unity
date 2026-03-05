@@ -1286,6 +1286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7768467848177100506, guid: e533ef891c4d3d246a171cc9cb4f84f8, type: 3}
+      propertyPath: femaleSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3fe701ca102f5949b945be396ad9a67, type: 3}
     - target: {fileID: 8878911636364810829, guid: e533ef891c4d3d246a171cc9cb4f84f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

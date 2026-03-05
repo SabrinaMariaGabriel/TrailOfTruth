@@ -8,10 +8,12 @@ public class IntroSequence : MonoBehaviour
 {
     [Header("Die Schauspieler")]
     public Transform bird;
-    public Transform player;
+    public GameObject playerGroup; // NEU: Hier ziehen wir die "Player_Cutscene_Group" rein
+    private Transform player;      // Wird automatisch befüllt
+    private Animator playerAnimator; // Wird automatisch befüllt
+
     public Image fadeScreen;
     public Animator birdAnimator;
-    public Animator playerAnimator;
 
     [Header("Requisiten")]
     public TextMeshProUGUI skipText; // Hier ziehen wir das Text-Objekt rein
@@ -23,7 +25,31 @@ public class IntroSequence : MonoBehaviour
 
     void Start()
     {
+        SetupSelectedCharacter();
         StartCoroutine(PlayIntroFilm());
+    }
+
+    void SetupSelectedCharacter()
+    {
+        string chosenId = GameState.I.selectedCharacterId;
+        bool found = false;
+
+        foreach (Transform child in playerGroup.transform)
+        {
+            if (child.name == chosenId)
+            {
+                child.gameObject.SetActive(true);
+                player = child;
+                playerAnimator = child.GetComponent<Animator>();
+                found = true;
+            }
+            else
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        if (!found) Debug.LogError("IntroSequence: Charakter '" + chosenId + "' nicht in der Gruppe gefunden!");
     }
 
     IEnumerator PlayIntroFilm()
