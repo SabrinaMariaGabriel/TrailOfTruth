@@ -7,6 +7,8 @@ public class TapToMove2D : MonoBehaviour
     public LayerMask walkableMask; // WalkArea
     public LayerMask npcMask;      // NPC Layer
     public float speed = 3f;
+    private Animator anim;
+    public float characterScale = 0.5f; // Hier trägst du deine Wunschgröße ein (z.B. 0.5)
 
     [Header("UI")]
     public bool blockWhenPointerOverUI = true;
@@ -23,6 +25,7 @@ public class TapToMove2D : MonoBehaviour
         // NEU: Wir schnappen uns den Rigidbody von unserem Spieler
         rb = GetComponent<Rigidbody2D>();
         target = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -70,9 +73,29 @@ public class TapToMove2D : MonoBehaviour
             {
                 IsMoving = false;
             }
+            else
+            {
+                // --- NEU: SPIEGELN (FLIP) ---
+                if (target.x > transform.position.x)
+                {
+                    transform.localScale = new Vector3(characterScale, characterScale, 1); // Nach Rechts
+                }
+                else if (target.x < transform.position.x)
+                {
+                    transform.localScale = new Vector3(-characterScale, characterScale, 1); // Nach Links
+                }
+            }
+        }
+
+        // AM ENDE DER UPDATE: Animator aktualisieren
+        if (anim != null)
+        {
+            // Wenn IsMoving true ist, setzen wir "Speed" auf 1, sonst auf 0
+            anim.SetFloat("Speed", IsMoving ? 1f : 0f);
         }
     }
 
+    /*
     // NEU: Physikalische Bewegungen gehören IMMER in die FixedUpdate!
     void FixedUpdate()
     {
@@ -84,6 +107,43 @@ public class TapToMove2D : MonoBehaviour
             rb.MovePosition(newPos);
         }
     }
+    */
+    void FixedUpdate()
+    {
+        if (IsMoving)
+        {
+            Vector2 currentPos = rb.position;
+            Vector2 direction = (target - currentPos).normalized;
+            float moveDistance = speed * Time.fixedDeltaTime;
+
+            // --- DER REPARIERTE PHYSIK-CHECK ---
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.useLayerMask = true;
+            // Wir sagen dem Filter: Achte NUR auf Walkable und NPCs (oder alles außer Player)
+            // WICHTIG: Ersetze 'walkableMask' durch die Masken, die blockieren sollen
+            filter.layerMask = npcMask;
+            filter.useTriggers = false; // Trigger ignorieren (wie Durchgänge)
+
+            RaycastHit2D[] hits = new RaycastHit2D[1];
+
+            // rb.Cast sucht jetzt nur nach Dingen im npcMask Layer
+            int hitCount = rb.Cast(direction, filter, hits, moveDistance + 0.05f);
+
+            if (hitCount > 0)
+            {
+                // Wir sind gegen einen NPC oder ein Hindernis gelaufen
+                Stop();
+                Debug.Log("Blockiert durch: " + hits[0].collider.name);
+            }
+            else
+            {
+                // Weg ist frei
+                Vector2 newPos = Vector2.MoveTowards(currentPos, target, moveDistance);
+                rb.MovePosition(newPos);
+            }
+        }
+    }
+
 
     bool IsPointerOverUI()
     {

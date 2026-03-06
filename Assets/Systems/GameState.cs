@@ -11,6 +11,8 @@ public class GameState : MonoBehaviour
     public Vector3 lastPlayerPosition;
     public bool hasSavedPosition = false;
 
+    public bool martinTalked = false; // Hat der Spieler mit Martin gesprochen?
+
 
     void Awake()
     {
@@ -46,6 +48,7 @@ public class GameState : MonoBehaviour
         PlayerPrefs.SetString("Save_CharId", selectedCharacterId);
         PlayerPrefs.SetFloat("Save_PosX", lastPlayerPosition.x);
         PlayerPrefs.SetFloat("Save_PosY", lastPlayerPosition.y);
+        PlayerPrefs.SetInt("Save_MartinTalked", martinTalked ? 1 : 0);
 
         PlayerPrefs.Save(); // Speichervorgang abschlieﬂen
         Debug.Log("Spiel gespeichert!");
@@ -64,6 +67,8 @@ public class GameState : MonoBehaviour
 
             hasSavedPosition = true; // Damit der Spieler beim Laden dorthin teleportiert wird
             Debug.Log("Spiel geladen: " + selectedCharacterId + " an Position " + lastPlayerPosition);
+
+            martinTalked = PlayerPrefs.GetInt("Save_MartinTalked", 0) == 1;
         }
     }
 }

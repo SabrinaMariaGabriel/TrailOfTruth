@@ -107,6 +107,14 @@ public class DialogueController : MonoBehaviour
         {
             if (answersGrid != null) answersGrid.SetActive(false);
 
+            // NEU: Wir markieren Martin IMMER als "gesprochen", 
+            // damit er nicht mehr im Wald als NPC herumsteht.
+            if (GameState.I != null)
+            {
+                GameState.I.martinTalked = true;
+                GameState.I.SaveGame(); // Speichern, damit es permanent bleibt
+            }
+
             bool comesWithYou = martinTrust >= 3;
 
             if (comesWithYou)

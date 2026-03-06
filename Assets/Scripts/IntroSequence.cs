@@ -76,7 +76,7 @@ public class IntroSequence : MonoBehaviour
             float t = 0;
             while (t < 1)
             {
-                t += Time.deltaTime / 1.5f; // Text braucht 1.5 Sek zum Erscheinen
+                t += Time.deltaTime / 1f; // Text braucht 1 Sek zum Erscheinen
                 skipText.color = new Color(skipText.color.r, skipText.color.g, skipText.color.b, t);
                 yield return null;
             }

@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Anna_Wald_Override
+  m_Controller: {fileID: 9100000, guid: 046f79fd42ae54c4f892516c42d7c5bb, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e6e106c3e1d0a5b45a7b173335f0403a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 57ab1bc0dba4ebb42a1f92bc48ecad2a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: bc21980413c989843853a01386b04be6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5a35f6717d2064740ac7e70b8a7faa1d, type: 2}
