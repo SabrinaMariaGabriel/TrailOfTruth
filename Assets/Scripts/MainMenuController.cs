@@ -23,7 +23,8 @@ public class MainMenuController : MonoBehaviour
         // Prüfen, ob ein Spielstand existiert. Wenn nicht, den "Laden"-Button deaktivieren.
         if (loadGameButton != null)
         {
-            loadGameButton.interactable = PlayerPrefs.HasKey("Save_CharId");
+            //loadGameButton.interactable = PlayerPrefs.HasKey("Save_CharId"); für die save slots probably important 
+            loadGameButton.interactable = GameState.I.HasSave(1); // Prüfen, ob Slot 1 einen Spielstand hat
         }
     }
 
@@ -93,7 +94,7 @@ public class MainMenuController : MonoBehaviour
         // 1. Spielstand in den GameState laden
         if (GameState.I != null)
         {
-            GameState.I.LoadGame();
+            GameState.I.LoadGame(1);
         }
 
         // 2. Szene laden (der Spieler wird dann automatisch an die geladene Position gesetzt)

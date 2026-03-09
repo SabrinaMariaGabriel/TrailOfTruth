@@ -5,14 +5,16 @@ public class GameState : MonoBehaviour
 {
     public static GameState I { get; private set; }
 
-    private HashSet<string> companions = new HashSet<string>();
+    [Header("Slot-System")]
+    public int currentSlot = 1; // Standard-Slot
 
-    // NEU: Hier speichern wir die Position
+    [Header("Daten")]
+    private HashSet<string> companions = new HashSet<string>();
+    public List<string> currentParty = new List<string>();
     public Vector3 lastPlayerPosition;
     public bool hasSavedPosition = false;
-
-    public bool martinTalked = false; // Hat der Spieler mit Martin gesprochen?
-
+    public bool martinTalked = false;
+    public string selectedCharacterId = "male";
 
     void Awake()
     {
@@ -25,50 +27,115 @@ public class GameState : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // PRÜFEN: Existiert ein Spielstand? (Für das Ausgrauen im Menü)
+    public bool HasSave(int slot)
+    {
+        return PlayerPrefs.HasKey("Slot" + slot + "_CharId");
+    }
+
+    // BEGLEITER LOGIK
     public void AddCompanion(string id)
     {
         companions.Add(id);
-        Debug.Log("AddCompanion: " + id);
+        if (!currentParty.Contains(id)) currentParty.Add(id);
+        RefreshParty();
     }
 
     public void RemoveCompanion(string id)
     {
         companions.Remove(id);
-        Debug.Log("RemoveCompanion: " + id);
+        currentParty.Remove(id);
+        RefreshParty();
     }
 
     public bool HasCompanion(string id) => companions.Contains(id);
 
-    // NEU: Welcher Charakter wurde im Menü gewählt?
-    public string selectedCharacterId = "male"; // Standardwert
-
-    // Speichert den aktuellen Stand fest auf dem Gerät
-    public void SaveGame()
+    public List<string> GetCurrentParty()
     {
-        PlayerPrefs.SetString("Save_CharId", selectedCharacterId);
-        PlayerPrefs.SetFloat("Save_PosX", lastPlayerPosition.x);
-        PlayerPrefs.SetFloat("Save_PosY", lastPlayerPosition.y);
-        PlayerPrefs.SetInt("Save_MartinTalked", martinTalked ? 1 : 0);
-
-        PlayerPrefs.Save(); // Speichervorgang abschließen
-        Debug.Log("Spiel gespeichert!");
+        if (currentParty.Count == 0 && HasCompanion("martin"))
+            currentParty.Add("martin");
+        return currentParty;
     }
 
-    // Lädt den Stand vom Gerät in den GameState
-    public void LoadGame()
+    // SPEICHERN
+    public void SaveGame()
     {
-        if (PlayerPrefs.HasKey("Save_CharId"))
+        string p = "Slot" + currentSlot + "_"; // Prefix für den aktuellen Slot
+
+        PlayerPrefs.SetString(p + "CharId", selectedCharacterId);
+        PlayerPrefs.SetFloat(p + "PosX", lastPlayerPosition.x);
+        PlayerPrefs.SetFloat(p + "PosY", lastPlayerPosition.y);
+        PlayerPrefs.SetInt(p + "MartinTalked", martinTalked ? 1 : 0);
+
+        // Stats aus dem GameManager holen
+        if (GameManager.I != null)
         {
-            selectedCharacterId = PlayerPrefs.GetString("Save_CharId");
-
-            float x = PlayerPrefs.GetFloat("Save_PosX");
-            float y = PlayerPrefs.GetFloat("Save_PosY");
-            lastPlayerPosition = new Vector3(x, y, 0);
-
-            hasSavedPosition = true; // Damit der Spieler beim Laden dorthin teleportiert wird
-            Debug.Log("Spiel geladen: " + selectedCharacterId + " an Position " + lastPlayerPosition);
-
-            martinTalked = PlayerPrefs.GetInt("Save_MartinTalked", 0) == 1;
+            PlayerPrefs.SetInt(p + "Energy", GameManager.I.energy);
+            PlayerPrefs.SetInt(p + "Credibility", GameManager.I.credibility);
+            PlayerPrefs.SetInt(p + "Feather", GameManager.I.feather);
         }
+
+        // Begleiter-Liste als Text speichern
+        string partyString = string.Join(",", currentParty);
+        PlayerPrefs.SetString(p + "Party", partyString);
+
+        PlayerPrefs.Save();
+        Debug.Log($"<color=orange>Spiel in Slot {currentSlot} gespeichert!</color>");
+    }
+
+    // LADEN
+    public void LoadGame(int slot)
+    {
+        currentSlot = slot;
+        string p = "Slot" + slot + "_";
+
+        if (HasSave(slot))
+        {
+            selectedCharacterId = PlayerPrefs.GetString(p + "CharId");
+            lastPlayerPosition = new Vector3(PlayerPrefs.GetFloat(p + "PosX"), PlayerPrefs.GetFloat(p + "PosY"), 0);
+            martinTalked = PlayerPrefs.GetInt(p + "MartinTalked") == 1;
+
+            // Stats laden
+            if (GameManager.I != null)
+            {
+                GameManager.I.energy = PlayerPrefs.GetInt(p + "Energy", 0);
+                GameManager.I.credibility = PlayerPrefs.GetInt(p + "Credibility", 0);
+                GameManager.I.feather = PlayerPrefs.GetInt(p + "Feather", 0);
+                GameManager.I.RefreshUI();
+            }
+
+            // Party/Begleiter laden
+            string partyString = PlayerPrefs.GetString(p + "Party", "");
+            currentParty = new List<string>(partyString.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries));
+
+            // HashSet für die HasCompanion-Logik füllen
+            companions.Clear();
+            foreach (string id in currentParty) companions.Add(id);
+
+            hasSavedPosition = true;
+            Debug.Log($"<color=green>Slot {slot} geladen!</color>");
+        }
+    }
+
+    // LÖSCHEN
+    public void DeleteSave(int slot)
+    {
+        string p = "Slot" + slot + "_";
+        PlayerPrefs.DeleteKey(p + "CharId");
+        PlayerPrefs.DeleteKey(p + "PosX");
+        PlayerPrefs.DeleteKey(p + "PosY");
+        PlayerPrefs.DeleteKey(p + "MartinTalked");
+        PlayerPrefs.DeleteKey(p + "Energy");
+        PlayerPrefs.DeleteKey(p + "Credibility");
+        PlayerPrefs.DeleteKey(p + "Feather");
+        PlayerPrefs.DeleteKey(p + "Party");
+        PlayerPrefs.Save();
+        Debug.Log($"<color=red>Slot {slot} gelöscht!</color>");
+    }
+
+    public void RefreshParty()
+    {
+        FollowPlayer[] followers = Object.FindObjectsByType<FollowPlayer>(FindObjectsSortMode.None);
+        foreach (var follower in followers) follower.UpdateChainTarget();
     }
 }

@@ -107,6 +107,8 @@ public class BirdTutorialController : MonoBehaviour
                 SetLine("Aber keine Sorge, ich behalte dich im Auge. Wir sehen uns zwischen den Bäumen!");
                 break;
             case 12:
+                // Bevor die Szene wechselt, einmal alles "festschreiben"
+                if (GameState.I != null) GameState.I.SaveGame();
                 SceneManager.LoadScene("ForestScene");
                 break;
         }
@@ -193,8 +195,14 @@ public class BirdTutorialController : MonoBehaviour
         answerButtons[0].onClick.AddListener(() => {
             SetLine("Ah, also ein Profi! Sicher, dass du keine Hilfe brauchst?");
             SetupTwoButtons("Ab in den Wald!", "Doch lieber Tutorial.");
+
+            // --- HIER IST DER ENTSCHEIDENDE PUNKT ---
             answerButtons[0].onClick.RemoveAllListeners();
-            answerButtons[0].onClick.AddListener(() => SceneManager.LoadScene("ForestScene"));
+            answerButtons[0].onClick.AddListener(() => {
+                GrantRewardsInstantly(); // Werte sofort im Hintergrund geben
+                SceneManager.LoadScene("ForestScene");
+            });
+
             answerButtons[1].onClick.RemoveAllListeners();
             answerButtons[1].onClick.AddListener(() => ContinueTutorial());
         });
@@ -261,5 +269,25 @@ public class BirdTutorialController : MonoBehaviour
             yield return null;
         }
         barFill.color = orig;
+    }
+
+    // --- NEU: SOFORTIGE VERGABE (FÜR SKIP) ---
+    private void GrantRewardsInstantly()
+    {
+        if (gameManager == null) return;
+
+        // Werte direkt setzen ohne Animation
+        gameManager.AddEnergy(80);
+        gameManager.AddCredibility(50);
+        gameManager.AddFeather(30);
+
+        // SICHERHEITS-NETZ:
+        // Wir sagen dem GameState: "Die neuen Werte bitte sofort 'einfrieren'!"
+        if (GameState.I != null)
+        {
+            GameState.I.lastPlayerPosition = new Vector3(0, 0, 0); // Oder Startpos im Wald
+            GameState.I.SaveGame();
+        }
+        Debug.Log("<color=green>Profi-Start: Werte sofort hinzugefügt.</color>");
     }
 }

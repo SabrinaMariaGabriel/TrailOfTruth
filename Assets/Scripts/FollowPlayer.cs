@@ -1,58 +1,106 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FollowPlayer : MonoBehaviour
 {
+    [Header("Identität")]
+    public string characterId = "martin";
+
+    [Header("Einstellungen")]
     public Transform target;
-    public float followDistance = 1.2f; // Etwas mehr Platz lassen
-    public float stopDistance = 0.8f;   // Ab hier wird er langsamer/stoppt er
-    public float speed = 2.5f;          // Ein klein wenig langsamer als der Player
+    public float followDistance = 1.2f;
+    public float stopDistance = 0.8f;
+    public float speed = 2.5f;
+    public float characterScale = 0.5f;
 
     private Animator anim;
-    private SpriteRenderer sr;
+    private bool isActive = false;
+    private bool wasWalking = false; // Für saubere Logs
 
     void Awake()
     {
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
     }
 
     void Start()
     {
-        if (GameState.I != null && GameState.I.HasCompanion("martin"))
+        UpdateChainTarget();
+
+        if (isActive && target != null)
         {
-            // Martin direkt hinter den Spieler setzen beim Start
             transform.position = target.position - new Vector3(0.5f, 0, 0);
+        }
+    }
+
+    public void UpdateChainTarget()
+    {
+        if (GameState.I == null) return;
+
+        List<string> party = GameState.I.GetCurrentParty();
+        int myIndex = party.IndexOf(characterId);
+
+        // Wenn nicht in der Party: AUSSCHALTEN
+        if (myIndex == -1)
+        {
+            isActive = false;
+            gameObject.SetActive(false);
+            return;
+        }
+
+        // Wenn in der Party: EINSCHALTEN
+        isActive = true;
+        gameObject.SetActive(true);
+
+        if (myIndex == 0)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null) target = player.transform;
         }
         else
         {
-            gameObject.SetActive(false);
+            string leaderId = party[myIndex - 1];
+            GameObject leaderObj = GameObject.Find(leaderId);
+            if (leaderObj != null) target = leaderObj.transform;
         }
     }
 
     void Update()
     {
-        if (target == null) return;
+        if (target == null || !isActive) return;
 
         float distance = Vector2.Distance(transform.position, target.position);
 
-        // Nur bewegen, wenn der Player weit genug weg ist
         if (distance > followDistance)
         {
+            float multiplier = Mathf.Clamp01((distance - followDistance) / 1.0f);
+            float finalMultiplier = Mathf.Max(0.2f, multiplier);
+
             Vector3 direction = (target.position - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
+            transform.position += direction * (speed * finalMultiplier) * Time.deltaTime;
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
-            if (anim != null) anim.SetFloat("Speed", 1f);
+            if (anim != null) anim.SetFloat("Speed", finalMultiplier);
 
-            // Spiegeln
-            if (target.position.x > transform.position.x)
-                transform.localScale = new Vector3(1, 1, 1);
-            else
-                transform.localScale = new Vector3(-1, 1, 1);
+            // LOG NUR BEI ÄNDERUNG
+            if (!wasWalking)
+            {
+                Debug.Log($"<color=green>{characterId} startet Bewegung.</color> Ziel: {target.name}");
+                wasWalking = true;
+            }
+
+            float flip = (target.position.x > transform.position.x) ? 1f : -1f;
+            transform.localScale = new Vector3(flip * characterScale, characterScale, 1f);
         }
-        else if (distance < stopDistance)
+        else
         {
-            // Er ist nah genug dran
             if (anim != null) anim.SetFloat("Speed", 0f);
+
+            // LOG NUR BEI ÄNDERUNG
+            if (wasWalking && distance < followDistance + 0.1f)
+            {
+                Debug.Log($"<color=red>{characterId} gestoppt.</color> Distanz: {distance:F2}");
+                wasWalking = false;
+            }
         }
     }
 }
