@@ -60,14 +60,13 @@ public class GameState : MonoBehaviour
     // SPEICHERN
     public void SaveGame()
     {
-        string p = "Slot" + currentSlot + "_"; // Prefix für den aktuellen Slot
+        string p = "Slot" + currentSlot + "_";
 
         PlayerPrefs.SetString(p + "CharId", selectedCharacterId);
         PlayerPrefs.SetFloat(p + "PosX", lastPlayerPosition.x);
         PlayerPrefs.SetFloat(p + "PosY", lastPlayerPosition.y);
         PlayerPrefs.SetInt(p + "MartinTalked", martinTalked ? 1 : 0);
 
-        // Stats aus dem GameManager holen
         if (GameManager.I != null)
         {
             PlayerPrefs.SetInt(p + "Energy", GameManager.I.energy);
@@ -75,12 +74,12 @@ public class GameState : MonoBehaviour
             PlayerPrefs.SetInt(p + "Feather", GameManager.I.feather);
         }
 
-        // Begleiter-Liste als Text speichern
-        string partyString = string.Join(",", currentParty);
-        PlayerPrefs.SetString(p + "Party", partyString);
+        // NEU: Das Datum für die Slot-Anzeige
+        string timestamp = System.DateTime.Now.ToString("dd.MM.yyyy");
+        PlayerPrefs.SetString(p + "SaveDate", timestamp);
 
         PlayerPrefs.Save();
-        Debug.Log($"<color=orange>Spiel in Slot {currentSlot} gespeichert!</color>");
+        Debug.Log($"<color=orange>Automatisch in Slot {currentSlot} gespeichert!</color>");
     }
 
     // LADEN

@@ -9,6 +9,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject startGamePanel;
     public GameObject characterSelectPanel;
     public GameObject characterDetailPanel; // Neues Panel für die Detail-Ansicht
+    public GameObject saveSlotPanel; // Panel, das die Save Slots enthält
 
     [Header("Buttons")]
     public Button loadGameButton; // Damit wir ihn ausgrauen können, wenn es kein Savegame gibt
@@ -16,15 +17,17 @@ public class MainMenuController : MonoBehaviour
     // Hier merken wir uns, auf welchen Charakter in der Liste geklickt wurde
     private string pendingCharacterClass = "";
 
+
     void Start()
     {
         ShowMainMenu();
 
-        // Prüfen, ob ein Spielstand existiert. Wenn nicht, den "Laden"-Button deaktivieren.
-        if (loadGameButton != null)
+        // Prüfen, ob überhaupt IRGENDWO ein Spielstand ist
+        if (loadGameButton != null && GameState.I != null)
         {
-            //loadGameButton.interactable = PlayerPrefs.HasKey("Save_CharId"); für die save slots probably important 
-            loadGameButton.interactable = GameState.I.HasSave(1); // Prüfen, ob Slot 1 einen Spielstand hat
+            // Wenn Slot 1 ODER Slot 2 ODER Slot 3 existiert, darf man auf Laden klicken
+            bool hasAnySave = GameState.I.HasSave(1) || GameState.I.HasSave(2) || GameState.I.HasSave(3);
+            loadGameButton.interactable = hasAnySave;
         }
     }
 
@@ -35,6 +38,7 @@ public class MainMenuController : MonoBehaviour
         mainMenuPanel.SetActive(true);
         startGamePanel.SetActive(false);
         characterSelectPanel.SetActive(false);
+        saveSlotPanel.SetActive(false); // Sichergehen, dass es aus ist
     }
 
     public void ShowStartGameMenu()
@@ -42,6 +46,21 @@ public class MainMenuController : MonoBehaviour
         mainMenuPanel.SetActive(false);
         startGamePanel.SetActive(true);
         characterSelectPanel.SetActive(false);
+        saveSlotPanel.SetActive(false);
+    }
+
+    // NEU: Diese Methode öffnet das Slot-Panel für "Neues Spiel" oder "Laden"
+    public void OpenSaveSlotPanel(bool isLoadingMode)
+    {
+        saveSlotPanel.SetActive(true);
+        startGamePanel.SetActive(false);
+
+        // Wir sagen dem Skript auf dem Panel, ob wir laden oder neu speichern wollen
+        SaveSlotMenu slotMenu = saveSlotPanel.GetComponent<SaveSlotMenu>();
+        if (slotMenu != null)
+        {
+            slotMenu.currentMode = isLoadingMode ? SaveSlotMenu.MenuMode.Load : SaveSlotMenu.MenuMode.NewGame;
+        }
     }
 
     public void ShowCharacterSelect()
@@ -78,26 +97,31 @@ public class MainMenuController : MonoBehaviour
 
     public void StartNewGame(string characterId)
     {
-        // 1. Dem GameState den Charakter sagen
         if (GameState.I != null)
         {
             GameState.I.selectedCharacterId = characterId;
-            GameState.I.hasSavedPosition = false; // Wichtig: Beim neuen Spiel starten wir am Standard-Punkt!
+            GameState.I.hasSavedPosition = false;
+
+            // WICHTIG: Hier setzen wir die Standardwerte für ein frisches Spiel
+            // Damit man nicht die Werte vom vorherigen Slot mitschleppt
+            if (GameManager.I != null)
+            {
+                GameManager.I.energy = 0;
+                GameManager.I.credibility = 0;
+                GameManager.I.feather = 0;
+            }
         }
 
-        // 2. Szene laden (Cutscene)
         SceneManager.LoadScene("StartSequence");
     }
 
-    public void LoadSavedGame()
+    // Diese Methode wird jetzt vom SaveSlotMenu aufgerufen, wenn man einen Slot zum Laden wählt
+    public void LoadSavedGame(int slot)
     {
-        // 1. Spielstand in den GameState laden
         if (GameState.I != null)
         {
-            GameState.I.LoadGame(1);
+            GameState.I.LoadGame(slot);
         }
-
-        // 2. Szene laden (der Spieler wird dann automatisch an die geladene Position gesetzt)
         SceneManager.LoadScene("ForestScene");
     }
 }

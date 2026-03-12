@@ -61,10 +61,17 @@ public class GameManager : MonoBehaviour
     }
 
     // Läuft jedes Mal, wenn eine neue Szene (z.B. Wald) geladen wird
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         FindUIReferences();
-        RefreshUI();
+
+        // NEU: Falls wir einen Spielstand geladen haben, sofort die Balken füllen
+        if (GameState.I != null && GameState.I.hasSavedPosition)
+        {
+            // Wir nehmen die Werte, die GameState.LoadGame() bereits geladen hat
+            RefreshUI();
+        }
     }
 
     void FindUIReferences()
