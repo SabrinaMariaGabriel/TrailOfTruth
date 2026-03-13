@@ -58,6 +58,7 @@ public class GameState : MonoBehaviour
     }
 
     // SPEICHERN
+    // SPEICHERN
     public void SaveGame()
     {
         string p = "Slot" + currentSlot + "_";
@@ -67,6 +68,10 @@ public class GameState : MonoBehaviour
         PlayerPrefs.SetFloat(p + "PosY", lastPlayerPosition.y);
         PlayerPrefs.SetInt(p + "MartinTalked", martinTalked ? 1 : 0);
 
+        // Begleiter-Liste als Text speichern (z.B. "martin,robin")
+        string partyData = string.Join(",", currentParty);
+        PlayerPrefs.SetString(p + "Party", partyData);
+
         if (GameManager.I != null)
         {
             PlayerPrefs.SetInt(p + "Energy", GameManager.I.energy);
@@ -74,12 +79,12 @@ public class GameState : MonoBehaviour
             PlayerPrefs.SetInt(p + "Feather", GameManager.I.feather);
         }
 
-        // NEU: Das Datum für die Slot-Anzeige
-        string timestamp = System.DateTime.Now.ToString("dd.MM.yyyy");
+        // Datum UND Uhrzeit für die Slot-Anzeige
+        string timestamp = System.DateTime.Now.ToString("dd.MM.yyyy HH:mm"); // z.B. 13.03.2026 09:15
         PlayerPrefs.SetString(p + "SaveDate", timestamp);
 
         PlayerPrefs.Save();
-        Debug.Log($"<color=orange>Automatisch in Slot {currentSlot} gespeichert!</color>");
+        Debug.Log($"<color=orange>In Slot {currentSlot} gespeichert um {timestamp}!</color>");
     }
 
     // LADEN
@@ -128,6 +133,7 @@ public class GameState : MonoBehaviour
         PlayerPrefs.DeleteKey(p + "Credibility");
         PlayerPrefs.DeleteKey(p + "Feather");
         PlayerPrefs.DeleteKey(p + "Party");
+        PlayerPrefs.DeleteKey(p + "SaveDate");
         PlayerPrefs.Save();
         Debug.Log($"<color=red>Slot {slot} gelöscht!</color>");
     }

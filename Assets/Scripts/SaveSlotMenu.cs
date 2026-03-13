@@ -20,6 +20,10 @@ public class SaveSlotMenu : MonoBehaviour
     [Header("Referenzen")]
     public MainMenuController mainMenu;
 
+    [Header("Lösch-Warnung")]
+    public GameObject confirmDeletePanel; // Ein neues Panel im Inspector
+    private int slotToDelete;
+
     void OnEnable() { RefreshSlots(); }
 
     public void RefreshSlots()
@@ -27,33 +31,32 @@ public class SaveSlotMenu : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int slotNum = i + 1;
-            string p = "Slot" + slotNum + "_";
-            bool exists = PlayerPrefs.HasKey(p + "CharId");
+            bool exists = PlayerPrefs.HasKey("Slot" + slotNum + "_CharId");
 
-            // 1. Text-Anzeige: Datum oder "Leer"
+            // TEXT ANZEIGEN
             if (statusTexts[i] != null)
             {
-                statusTexts[i].text = exists ? "Gespeichert am: " + PlayerPrefs.GetString(p + "SaveDate", System.DateTime.Now.ToShortDateString()) : "Leer";
+                statusTexts[i].text = exists ? "Gespeichert: " + PlayerPrefs.GetString("Slot" + slotNum + "_SaveDate") : "Leer";
             }
 
-            // 2. Sichtbarkeit der braunen Laden-Buttons
-            if (loadButtons[i] != null)
+            // BUTTONS INTERAKTIV MACHEN
+            if (currentMode == MenuMode.NewGame)
             {
-                // Zeige den Button nur, wenn ein Save existiert
-                loadButtons[i].SetActive(exists);
-            }
-
-            // 3. Interaktion der Rahmen
-            if (currentMode == MenuMode.Load)
-            {
-                slotButtons[i].interactable = exists;
-                deleteButtons[i].gameObject.SetActive(exists);
-            }
-            else
-            {
+                // Im "Neues Spiel" Modus muss man IMMER klicken können, 
+                // egal ob der Slot leer ist oder nicht (zum Überschreiben)
                 slotButtons[i].interactable = true;
-                deleteButtons[i].gameObject.SetActive(exists);
             }
+            else // Load Modus
+            {
+                // Laden kann man nur, wenn auch was da ist
+                slotButtons[i].interactable = exists;
+            }
+
+            // Mülltonne nur zeigen, wenn ein Spielstand da ist
+            deleteButtons[i].gameObject.SetActive(exists);
+
+            // Die braunen Laden-Buttons (falls vorhanden)
+            if (loadButtons[i] != null) loadButtons[i].SetActive(exists && currentMode == MenuMode.Load);
         }
     }
 
@@ -86,9 +89,24 @@ public class SaveSlotMenu : MonoBehaviour
 
     public void CancelWarning() => confirmOverwritePanel.SetActive(false);
 
+    // Wird von der Mülltonne aufgerufen
     public void DeleteSlot(int slot)
     {
-        GameState.I.DeleteSave(slot);
-        RefreshSlots();
+        slotToDelete = slot;
+        confirmDeletePanel.SetActive(true); // Pop-up öffnen: "Willst du wirklich löschen?"
     }
+
+    // Wird vom "JA"-Button im Lösch-Pop-up aufgerufen
+    public void ConfirmDelete()
+    {
+        GameState.I.DeleteSave(slotToDelete);
+        confirmDeletePanel.SetActive(false);
+        RefreshSlots();
+
+        // WICHTIG: Den MainMenuController informieren, damit der "Laden"-Button 
+        // im Hauptmenü ausgegraut wird, falls jetzt alle Slots leer sind.
+        if (mainMenu != null) mainMenu.Start();
+    }
+
+    public void CancelDelete() => confirmDeletePanel.SetActive(false);
 }

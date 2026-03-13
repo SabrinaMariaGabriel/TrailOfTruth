@@ -18,7 +18,7 @@ public class MainMenuController : MonoBehaviour
     private string pendingCharacterClass = "";
 
 
-    void Start()
+    public void Start()
     {
         ShowMainMenu();
 
@@ -52,14 +52,23 @@ public class MainMenuController : MonoBehaviour
     // NEU: Diese Methode öffnet das Slot-Panel für "Neues Spiel" oder "Laden"
     public void OpenSaveSlotPanel(bool isLoadingMode)
     {
+        // 1. Zuerst die Referenz holen
+        SaveSlotMenu slotMenu = saveSlotPanel.GetComponent<SaveSlotMenu>();
+
+        if (slotMenu != null)
+        {
+            // 2. Den Modus setzen, BEVOR das Panel aktiv wird
+            slotMenu.currentMode = isLoadingMode ? SaveSlotMenu.MenuMode.Load : SaveSlotMenu.MenuMode.NewGame;
+        }
+
+        // 3. Jetzt erst das Panel aktivieren
         saveSlotPanel.SetActive(true);
         startGamePanel.SetActive(false);
 
-        // Wir sagen dem Skript auf dem Panel, ob wir laden oder neu speichern wollen
-        SaveSlotMenu slotMenu = saveSlotPanel.GetComponent<SaveSlotMenu>();
+        // 4. Zur Sicherheit den Refresh nochmal anstoßen, damit die Buttons wirklich reagieren
         if (slotMenu != null)
         {
-            slotMenu.currentMode = isLoadingMode ? SaveSlotMenu.MenuMode.Load : SaveSlotMenu.MenuMode.NewGame;
+            slotMenu.RefreshSlots();
         }
     }
 
@@ -99,6 +108,7 @@ public class MainMenuController : MonoBehaviour
     {
         if (GameState.I != null)
         {
+            GameState.I.currentParty.Clear(); // <--- DAS HIER FEHLT!
             GameState.I.selectedCharacterId = characterId;
             GameState.I.hasSavedPosition = false;
 
@@ -124,4 +134,16 @@ public class MainMenuController : MonoBehaviour
         }
         SceneManager.LoadScene("ForestScene");
     }
+
+    public void CheckLoadButton()
+    {
+        if (loadGameButton != null && GameState.I != null)
+        {
+            // Prüft alle 3 Slots
+            bool hasAnySave = GameState.I.HasSave(1) || GameState.I.HasSave(2) || GameState.I.HasSave(3);
+            loadGameButton.interactable = hasAnySave;
+        }
+    }
+
+    // Ruf das in der Start() auf und jedes Mal, wenn gelöscht wurde!
 }

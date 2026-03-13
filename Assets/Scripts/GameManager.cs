@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
 public class GameManager : MonoBehaviour
 {
     // Das "I" erlaubt es dir, von überall mit GameManager.I.AddEnergy(10) zuzugreifen
@@ -61,17 +61,25 @@ public class GameManager : MonoBehaviour
     }
 
     // Läuft jedes Mal, wenn eine neue Szene (z.B. Wald) geladen wird
-
+    // Diese Methode wird von Unity gerufen, wenn die Szene lädt
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Wir starten eine Coroutine, um der UI Zeit zum Laden zu geben
+        StartCoroutine(LateSyncRoutine());
+    }
+
+    IEnumerator LateSyncRoutine()
+    {
+        // Wir warten genau einen Frame. Das reicht meistens völlig aus.
+        yield return null;
+
+        // Jetzt suchen wir die Balken in der neuen Szene
         FindUIReferences();
 
-        // NEU: Falls wir einen Spielstand geladen haben, sofort die Balken füllen
-        if (GameState.I != null && GameState.I.hasSavedPosition)
-        {
-            // Wir nehmen die Werte, die GameState.LoadGame() bereits geladen hat
-            RefreshUI();
-        }
+        // Und jetzt befüllen wir sie mit den aktuellen Werten
+        RefreshUI();
+
+        Debug.Log("UI erfolgreich synchronisiert!");
     }
 
     void FindUIReferences()

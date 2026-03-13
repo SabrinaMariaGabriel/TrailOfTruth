@@ -31,15 +31,16 @@ public class StatPopup : MonoBehaviour
     public void Play(string msg, int amount, AudioClip positiveSfx, AudioClip negativeSfx)
     {
         text.text = msg;
-
-        // Farbe setzen
         text.color = amount >= 0 ? Color.green : Color.red;
 
-        // Sound
-        if (amount >= 0 && positiveSfx != null)
-            audioSource.PlayOneShot(positiveSfx);
-        else if (amount < 0 && negativeSfx != null)
-            audioSource.PlayOneShot(negativeSfx);
+        // SICHERHEITS-CHECK FÜR SOUND
+        if (audioSource != null)
+        {
+            if (amount >= 0 && positiveSfx != null)
+                audioSource.PlayOneShot(positiveSfx);
+            else if (amount < 0 && negativeSfx != null)
+                audioSource.PlayOneShot(negativeSfx);
+        }
 
         StartCoroutine(Anim(amount));
     }
